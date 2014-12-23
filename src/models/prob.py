@@ -3,7 +3,7 @@
 # @Author: largelymfs
 # @Date:   2014-12-23 22:03:52
 # @Last Modified by:   largelymfs
-# @Last Modified time: 2014-12-23 22:20:18
+# @Last Modified time: 2014-12-23 23:23:57
 import numpy as np
 
 class ProbModel:
@@ -57,9 +57,9 @@ class ProbModel:
 				p[w] = float(v + 0.5) / (50 + 1.0)
 				p1[w] = float(n - v + 0.5) / (self.number_doc- 50.0 + 1.0)
 		for i in range(t):
-			print "".join(self.doc[res[i][0]])
+			print res[i][0], "".join(self.doc[res[i][0]])
 
 if __name__=="__main__":
 	model = ProbModel("./../../data/demo.txt.out")
-	model.querry(["足球","晋级"], 10)
+	model.querry(["进球", "晋级", "胜利"], 10)
 

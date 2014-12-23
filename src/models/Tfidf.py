@@ -3,7 +3,7 @@
 # @Author: largelymfs
 # @Date:   2014-12-23 20:06:10
 # @Last Modified by:   largelymfs
-# @Last Modified time: 2014-12-23 20:51:20
+# @Last Modified time: 2014-12-23 23:18:08
 
 import numpy as np
 import numpy.linalg as LA
@@ -64,11 +64,11 @@ class TFIDF:
 		for i in range(self.word_number):
 			vector[i] *= (self.idf[i])
 		result = [(i, self.get_score(self.matrix[i], vector)) for i in range(self.doc_number)]
-		result = sorted(result, cmp=lambda x, y:-cmp(x[1],y[1]))[:25]
+		result = sorted(result, cmp=lambda x, y:-cmp(x[1],y[1]))[:10]
 		for (id, score) in result:
-			print "".join(self.doc[id])
+			print id, "".join(self.doc[id])
 
 
 if __name__=='__main__':
 	model = TFIDF("./../../data/demo.txt.out")
-	model.querry(["足球","晋级"])
+	model.querry(["进球", "晋级", "胜利"])

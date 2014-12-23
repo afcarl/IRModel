@@ -3,7 +3,7 @@
 # @Author: largelymfs
 # @Date:   2014-12-23 22:22:05
 # @Last Modified by:   largelymfs
-# @Last Modified time: 2014-12-23 22:51:52
+# @Last Modified time: 2014-12-23 23:22:43
 
 import numpy as np
 class T:
@@ -72,9 +72,9 @@ class ExBM:
 		s = [(i, self.sim(t, i)) for i in range(self.number_doc)]
 		res = sorted(s, cmp =lambda x, y:-cmp(x[1],y[1]))[:10]
 		for (id, score) in res:
-			print "".join(self.doc[id])
+			print id, "".join(self.doc[id])
 
 if __name__=="__main__":
-	t = T(2, children=[T(word="点球"), T(1, children=[T(word="绝杀"), T(word="篮板")])])
+	t = T(2, children=[T(word="进球"), T(1, children=[T(word="晋级"), T(word="胜利")])])
 	model = ExBM("./../../data/demo.txt.out")
 	model.querry(t) 

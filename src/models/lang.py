@@ -3,7 +3,7 @@
 # @Author: largelymfs
 # @Date:   2014-12-23 21:27:44
 # @Last Modified by:   largelymfs
-# @Last Modified time: 2014-12-23 21:52:18
+# @Last Modified time: 2014-12-23 23:25:20
 
 import numpy as np
 class LangModel:
@@ -42,8 +42,8 @@ class LangModel:
 		scores = [(i, self.score(q, i)) for i in range(self.number_doc)]
 		scores = sorted(scores, cmp=lambda x, y: -cmp(x[1],y[1]))[:10]
 		for (id, score) in scores:
-			print "".join(self.doc[id])
+			print id, "".join(self.doc[id])
 
 if __name__=="__main__":
 	model = LangModel("./../../data/demo.txt.out")
-	model.querry(["足球","晋级"])
+	model.querry(["进球", "晋级", "胜利"])
